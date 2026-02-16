@@ -1,6 +1,10 @@
 import { type FC } from 'react'
 
 import { useGate, useUnit } from 'effector-react'
+import { Link } from 'react-router-dom'
+
+import { Button } from 'shared/components/ui/button'
+import { AppRoutes } from 'shared/config/routes'
 
 import { orderListModel } from '../model/orderListModel'
 
@@ -28,6 +32,10 @@ export const MainPage: FC = () => {
           </p>
         </div>
       ))}
+
+      <Button asChild>
+        <Link to={AppRoutes.CreateOrder.path}>Create new order</Link>
+      </Button>
     </div>
   )
 }
