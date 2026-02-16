@@ -1,0 +1,18 @@
+import { lazy } from 'react'
+
+import { createStore } from 'effector'
+
+import { AppRoutes } from 'shared/config/routes'
+
+import type { IRoute } from './types'
+
+const MainPage = lazy(() =>
+  import('pages/main-page').then((module) => ({ default: module.MainPage })),
+)
+
+export const $routes = createStore<IRoute[]>([
+  {
+    path: AppRoutes.MainPage.path,
+    Component: <MainPage />,
+  },
+])
