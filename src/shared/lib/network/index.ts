@@ -1,0 +1,1 @@
+export { networkModel } from './model'
