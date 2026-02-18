@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     port: 8000,
   },
+  preview: {
+    port: 8000,
+  },
   plugins: [
     react(),
     tsconfigPaths(),
@@ -20,9 +23,9 @@ export default defineConfig({
         navigateFallback: 'index.html',
       },
       manifest: {
-        name: 'Horsh',
-        short_name: 'Horsh',
-        description: 'Horsh Order Management',
+        name: 'Horsch',
+        short_name: 'Horsch',
+        description: 'Horsch Order Management',
         theme_color: '#111827',
         background_color: '#111827',
         display: 'standalone',

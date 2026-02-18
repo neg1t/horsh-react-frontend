@@ -1,15 +1,15 @@
 import { type IDBPDatabase, openDB } from 'idb'
 
-import type { HorshDBSchema } from './types'
+import type { HorschDBSchema } from './types'
 
-const DB_NAME = 'horsh-db'
+const DB_NAME = 'horsch-db'
 const DB_VERSION = 1
 
-let dbPromise: Promise<IDBPDatabase<HorshDBSchema>> | null = null
+let dbPromise: Promise<IDBPDatabase<HorschDBSchema>> | null = null
 
-export function getDb(): Promise<IDBPDatabase<HorshDBSchema>> {
+export function getDb(): Promise<IDBPDatabase<HorschDBSchema>> {
   if (!dbPromise) {
-    dbPromise = openDB<HorshDBSchema>(DB_NAME, DB_VERSION, {
+    dbPromise = openDB<HorschDBSchema>(DB_NAME, DB_VERSION, {
       upgrade(db) {
         if (!db.objectStoreNames.contains('orders')) {
           db.createObjectStore('orders', { keyPath: 'id' })

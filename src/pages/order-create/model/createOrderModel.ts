@@ -2,6 +2,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 
 import api from 'shared/api/client'
 import { AppRoutes } from 'shared/config/routes'
+import type { PendingOperation } from 'shared/lib/indexed-db'
 import { networkModel } from 'shared/lib/network'
 import { offlineSyncModel, registerSyncHandler } from 'shared/lib/offline-sync'
 import { navigateToFx } from 'shared/lib/router-effects'
@@ -47,7 +48,7 @@ sample({
   clock: submitForm,
   source: { form: $form, isOnline: networkModel.stores.$isOnline },
   filter: ({ isOnline }) => !isOnline,
-  fn: ({ form }) => ({
+  fn: ({ form }): Omit<PendingOperation, 'id'> => ({
     type: 'create-order',
     payload: form,
     createdAt: Date.now(),
